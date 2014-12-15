@@ -13,6 +13,11 @@ public class LongestQueueCounter implements IPostCounter {
 		this.centralSystem = centralSystem;
 		previousService = this.findLongestQueue();
 	}
+	
+	@Override
+	public int getCurrentQueueHandled() {
+		return this.previousService;
+	}
 
 	@Override
 	public int nextTurn() {

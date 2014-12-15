@@ -9,6 +9,7 @@ public class QueueTest {
 		Queue queue = new Queue();
 
 		queue.addClient();
+		System.out.println(queue.getNextClient());
 		queue.addClient();
 		queue.addClient();
 		queue.addClient();

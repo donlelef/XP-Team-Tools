@@ -16,10 +16,13 @@ public class OneServiceCounter implements IPostCounter {
 
 	@Override
 	public int nextTurn() {
-
 		this.centralSystem.clientServedAtQueue(serviceType);
 		return serviceType;
-
+	}
+	
+	@Override
+	public int getCurrentQueueHandled() {
+		return this.serviceType;
 	}
 
 }

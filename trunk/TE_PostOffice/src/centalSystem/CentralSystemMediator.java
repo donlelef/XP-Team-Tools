@@ -1,14 +1,19 @@
 package centalSystem;
 
+import java.util.ArrayList;
+
 
 public class CentralSystemMediator implements ICentralSystem {
 
 	private Queue[] queues = {new Queue(), new Queue(), new Queue()};
 	private ITicketPrinter ticketPrinter;
+	private IVisualizer visualizer;
+	private ArrayList<IPostCounter> counterList = new ArrayList<IPostCounter>();
 	
-	public CentralSystemMediator(ITicketPrinter ticketPrinter) {
+	public CentralSystemMediator(ITicketPrinter ticketPrinter, IVisualizer visualizer) {
 		super();
 		this.ticketPrinter = ticketPrinter;
+		this.visualizer = visualizer;
 	}
 
 	/* (non-Javadoc)
@@ -43,6 +48,22 @@ public class CentralSystemMediator implements ICentralSystem {
 	@Override
 	public int getTotalClientAtQueue(int index){
 		return queues[index].getTotalClient();
+	}
+	
+	@Override
+	public void addCounter(IPostCounter counter) {
+		counterList.add(counter);
+	}
+	
+	@Override
+	public int nextTurnAtCounter(int index) {
+		visualizer.insert(index, counterList.get(index).getCurrentQueueHandled(), this.getNextClientAtQueue(counterList.get(index).getCurrentQueueHandled()));
+		return counterList.get(index).nextTurn();
+	}
+	
+	@Override
+	public int getCounterNumber() {
+		return counterList.size();		
 	}
 
 }

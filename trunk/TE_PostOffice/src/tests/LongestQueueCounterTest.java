@@ -2,6 +2,7 @@ package tests;
 
 import ui.ClientButtonFrame;
 import ui.TicketPrinter;
+import ui.VisualizerFrame;
 import centalSystem.CentralSystemMediator;
 import centalSystem.ICentralSystem;
 import centalSystem.ITicketPrinter;
@@ -14,7 +15,7 @@ public class LongestQueueCounterTest {
 		
 		ITicketPrinter printer = new TicketPrinter();
 
-		ICentralSystem mediator = new CentralSystemMediator(printer);
+		ICentralSystem mediator = new CentralSystemMediator(printer, new VisualizerFrame());
 
 		ClientButtonFrame frame = new ClientButtonFrame(mediator);
 		
@@ -42,9 +43,11 @@ public class LongestQueueCounterTest {
 		System.out.println(counter.nextTurn());
 		System.out.println("Prossimo cliente nella coda precedente: "+mediator.getNextClientAtQueue(1));
 		System.out.println(counter.nextTurn());
-		System.out.println("Prossimo cliente nella coda precedente: "+mediator.getNextClientAtQueue(1));
+		System.out.println("Prossimo cliente nella coda precedente: "+mediator.getNextClientAtQueue(0));
 		System.out.println(counter.nextTurn());
 		System.out.println("Prossimo cliente nella coda precedente: "+mediator.getNextClientAtQueue(1));
+		System.out.println(counter.nextTurn());
+		System.out.println("Prossimo cliente nella coda precedente: "+mediator.getNextClientAtQueue(0));
 		
 	}
 

@@ -11,7 +11,8 @@ public class PriorityServiceCounter implements IPostCounter {
 	private int previousService;
 	private ICentralSystem centralSystem;
 
-	public PriorityServiceCounter(ICentralSystem centralSystemMediator, int priorityService) {
+	public PriorityServiceCounter(ICentralSystem centralSystemMediator,
+			int priorityService) {
 		super();
 		this.priorityService = priorityService;
 		this.previousService = priorityService;
@@ -25,7 +26,7 @@ public class PriorityServiceCounter implements IPostCounter {
 
 		if (centralSystem.getTotalClientAtQueue(priorityService) != centralSystem
 				.getNextClientAtQueue(priorityService) - 1) {
-			
+
 			this.previousService = priorityService;
 			return priorityService;
 
@@ -48,4 +49,10 @@ public class PriorityServiceCounter implements IPostCounter {
 		return nextService;
 
 	}
+	
+	@Override
+	public int getCurrentQueueHandled() {
+		return this.previousService;
+	}
+	
 }

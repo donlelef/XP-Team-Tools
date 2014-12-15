@@ -9,5 +9,11 @@ public interface ICentralSystem {
 	public int getNextClientAtQueue(int index);
 
 	public int getTotalClientAtQueue(int index);
+	
+	public void addCounter(IPostCounter counter);
+	
+	public int nextTurnAtCounter(int index);
+	
+	public int getCounterNumber();
 
 }
