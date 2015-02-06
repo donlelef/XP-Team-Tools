@@ -1,0 +1,21 @@
+
+Questo pacchetto realizza l'intero set di componenti atto a realizzare 
+operazioni di filtro su un set di elementi. Il set in questione rimane astratto
+sia per quanto riguardo il tipo degli elementi, sia per quanto riguarda il tipo
+di List usata. Nel pacchetto sono compresi:
+
+- una interfaccia Filter che esegue il filtraggio di una List
+
+- un NoFilter implements Filter che esegue il filtraggio nullo (ingresso=uscita)
+
+- un TargetFilter implements che esegue questo tipo di filtraggio: ogni singolo
+  elemento della lista viene valutato tramite Checker e viene riportato sulla
+  collezione in uscita solo se la validazione ha esito positivo
+  
+- una interfaccia Checker che effettua la validazione
+
+- un StringChecker implements Checker (componente di test)
+
+
+
+WARNING: comportamento testato solo per List = ArrayList. Non usare altrimenti
