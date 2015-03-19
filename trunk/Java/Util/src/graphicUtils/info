@@ -1,9 +1,0 @@
-
-Questo pacchetto realizza qualche componente grafico di decorazione, 
-ovvero di scarsissima utilità all'esame. Comprende:
-
-- un ForeGroundPainter implements MouseListener che colora il foreground
-  di un component (ad esempio: il testo di un JLabel) quando il mouse si avvicina
-  
-- un TextClearer implements MouseListener che cancella il testo di un JTextComponent
-  quando il mouse clicca sull'area del Component a cui viene aggiunto questo listener
